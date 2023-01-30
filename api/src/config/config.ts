@@ -6,12 +6,23 @@ const MSSQL_HOST = process.env.MSSQL_HOST || 'localhost';
 const MSSQL_DATABASE = process.env.MSSQL_DATABASE || 'nodebooks';
 const MSSQL_USER = process.env.MSSQL_HOST || 'root';
 const MSSQL_PASS = process.env.MSSQL_HOST || '';
+const MSSQL_ENCRYPT = process.env.MSSQL_ENCRYPT || 'true';
+const MSSQL_TRUST_UNSIGNED_CERT = process.env.MSSQL_TRUST_UNSIGNED_CERT || 'false';
 
 const MSSQL = {
-  host: MSSQL_HOST,
+  server: MSSQL_HOST,
   database: MSSQL_DATABASE,
   user: MSSQL_USER,
-  pass: MSSQL_PASS
+  password: MSSQL_PASS,
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000
+  },
+  options: {
+    encrypt: Boolean(MSSQL_ENCRYPT),
+    trustServerCertificate: Boolean(MSSQL_TRUST_UNSIGNED_CERT)
+  }
 };
 
 const SERVER_HOSTNAME = process.env.SERVER_HOSTNAME || 'localhost';
