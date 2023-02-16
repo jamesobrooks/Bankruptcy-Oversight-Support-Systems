@@ -1,5 +1,7 @@
 # Gradle
 .gradle/
+api/gradlew
+api/gradlew.bat
 build/
 
 # Eclipse
