@@ -3,10 +3,7 @@ package gov.doj.adapters.gateways;
 import gov.doj.usecases.PersistenceGateway;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class LocalPersistenceGateway implements PersistenceGateway {
     List<String> caseList = new ArrayList<>();

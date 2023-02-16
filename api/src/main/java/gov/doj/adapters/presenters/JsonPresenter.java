@@ -16,5 +16,6 @@ public class JsonPresenter implements Presenter {
     @Override
     public void onFailure(Exception e, ServerRequestContext context) {
         System.out.println(e);
+        context.serverResponse().addResponseHeader(HttpHeaders.CONTENT_LENGTH, String.valueOf(e.toString().length())).setStatusCode(500).write(e.toString().getBytes());
     }
 }

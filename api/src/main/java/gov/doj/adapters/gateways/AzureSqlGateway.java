@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collections;
+import java.util.List;
 
 public class AzureSqlGateway implements PersistenceGateway {
     public void connect() {
@@ -28,12 +30,17 @@ public class AzureSqlGateway implements PersistenceGateway {
             }
         }
         catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void addCase(String caseData) {
-
+    public List<String> getCases() {
+        try {
+            connect();
+        } catch (Exception e) {
+            throw e;
+        }
+        return Collections.emptyList();
     }
 }
