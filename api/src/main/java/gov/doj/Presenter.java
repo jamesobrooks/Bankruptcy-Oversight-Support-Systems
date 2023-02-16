@@ -1,7 +1,9 @@
 package gov.doj;
 
-public interface Presenter {
-    void onSuccess(Object content);
+import org.jboss.resteasy.reactive.server.spi.ServerRequestContext;
 
-    void onFailure(Exception e);
+public interface Presenter {
+    void onSuccess(Object content, ServerRequestContext context);
+
+    void onFailure(Exception e, ServerRequestContext context);
 }

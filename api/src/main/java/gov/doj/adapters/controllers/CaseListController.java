@@ -2,6 +2,7 @@ package gov.doj.adapters.controllers;
 
 import gov.doj.RuntimeObjectFactory;
 import gov.doj.usecases.CaseListUseCase;
+import org.jboss.resteasy.reactive.server.spi.ServerRequestContext;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,8 +17,8 @@ public class CaseListController {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public void getCases() {
+    public void getCases(ServerRequestContext context) {
         CaseListUseCase useCase = new CaseListUseCase();
-        useCase.getCases("");
+        useCase.getCases("", context);
     }
 }
