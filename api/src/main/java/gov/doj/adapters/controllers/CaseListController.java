@@ -11,10 +11,6 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/cases")
 public class CaseListController {
-    CaseListController() {
-        RuntimeObjectFactory.init();
-    }
-
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public void getCases(ServerRequestContext context) {
