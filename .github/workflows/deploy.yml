@@ -1,13 +1,15 @@
 name: Azure ARM
 
 on:
-  push:
-    branches:
-      - 111-azure-iac
+  workflow_run:
+    workflows: [ESLint, React.js Build CI]
+    types:
+      - completed
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    if: github.event.workflow_run.conclusion == 'success' github.event.workflow_run.branch == '111-azure-iac'
     steps:
 
       # Checkout code
