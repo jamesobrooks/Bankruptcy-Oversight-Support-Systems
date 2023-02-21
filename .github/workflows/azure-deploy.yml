@@ -4,9 +4,8 @@ name: Azure ARM
 
 on:
   workflow_run:
-    workflows:
-      - ESLint
-#      - 'React.js Build CI'
+    workflows: ["ESLint"]
+#      - ', "React.js Build CI"'
     types:
       - completed
 #    branches:
