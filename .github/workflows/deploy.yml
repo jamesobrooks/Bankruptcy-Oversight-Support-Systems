@@ -1,17 +1,20 @@
+# This workflow will deploy to the Flexion Azure environment via Bicep
+
 name: Azure ARM
 
 on:
   workflow_run:
-    workflows: ["ESLint", "React.js Build CI"]
+    workflows:
+      - ESLint
+#      - 'React.js Build CI'
     types:
       - completed
-    branches:
-      - '111-azure-iac'
+#    branches:
+#      - '111-azure-iac'
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success'
     steps:
 
       # Checkout code
@@ -21,6 +24,10 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: testing
+        run: |
+          echo github.event.workflow_run
 
         # Deploy Bicep file
       - name: deploy
