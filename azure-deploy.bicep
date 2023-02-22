@@ -1,6 +1,6 @@
 resource bossClientDev 'Microsoft.Web/sites@2021-01-15' = {
   name: 'boss-client-dev'
-  location: 'East US'
+  location: 'global'
   tags: {
     'hidden-related:${resourceGroup().id}/providers/Microsoft.Web/serverfarms/appServicePlan': 'Resource'
   }
