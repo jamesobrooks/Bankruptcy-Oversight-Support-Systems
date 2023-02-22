@@ -1,4 +1,5 @@
 param location string
+param serverFarmId string
 
 resource bossServerFarm 'Microsoft.Web/serverfarms@2022-03-01' = {
   location: location
@@ -12,6 +13,6 @@ resource bossClientDev 'Microsoft.Web/sites@2021-01-15' = {
     'hidden-related:${resourceGroup().id}/providers/Microsoft.Web/serverfarms/appServicePlan': 'Resource'
   }
   properties: {
-    serverFarmId: 'webServerFarms.id'
+    serverFarmId: serverFarmId
   }
 }
