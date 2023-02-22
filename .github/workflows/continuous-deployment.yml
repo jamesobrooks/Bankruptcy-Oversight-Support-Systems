@@ -81,4 +81,4 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
           template: ./azure-deploy.bicep
-          parameters:
+          parameters: location=eastus
